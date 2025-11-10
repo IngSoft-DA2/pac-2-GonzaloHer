@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h2>Importadores Disponibles</h2>
+
+  <div *ngIf="isLoading" class="alert alert-info">Cargando...</div>
+  <div *ngIf="hasError" class="alert alert-danger">
+    Ocurrió un error al cargar los importadores.
+  </div>
+  <div *ngIf="!isLoading && dllNames.length === 0 && !hasError" class="alert alert-warning">
+    No se encontraron DLLs válidas.
+  </div>
+
+  <ul *ngIf="!isLoading && dllNames.length > 0" class="list-group">
+    <li *ngFor="let name of dllNames" class="list-group-item">
+      {{ name }}
+    </li>
+  </ul>
+</div>
